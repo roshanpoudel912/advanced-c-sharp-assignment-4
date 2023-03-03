@@ -1,0 +1,175 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Metrics;
+using System.Xml.Linq;
+
+namespace RentalAgency
+{
+    interface IRental
+    {
+        int Id { get; set; }
+        bool IsAvailable { get; set; }
+        string Name { get; set; }
+    }
+
+    class RentalItem : IRental
+    {
+        public bool IsAvailable { get; set; }
+        public string Name { get; set; }
+        public double RentPrice { get; set; }
+
+        public int Id { get; set; }
+
+        public RentalItem(int id, string name, double rentPrice)
+        {
+            Id = id;
+            Name = name;
+            RentPrice = rentPrice;
+            IsAvailable = true;
+        }
+
+        public override string ToString()
+        {
+            return $" Id: {Id}, Name: {Name}, Rent Price: {RentPrice:C}, Available: {(IsAvailable ? "Yes" : "No")}";
+        }
+    }
+
+    class Vehicle : RentalItem
+    {
+        public string Type { get; set; }
+        public int Year { get; set; }
+        
+
+        public Vehicle(int id, string name, double rentPrice, string type, int year)
+            : base(id, name, rentPrice)
+        {
+            Type = type;
+            Year = year;
+
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + $", Type: {Type}, Year: {Year}";
+        }
+    }
+
+    class Tool : RentalItem
+    {
+        public string Category { get; set; }
+
+        public Tool(int id, string name, double rentPrice, string category)
+            : base(id, name, rentPrice)
+        {
+            Category = category;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + $", Category: {Category}";
+        }
+    }
+
+
+
+    class Program
+    {
+        static List<IRental> rentalItems = new List<IRental>();
+
+        static void Main(string[] args)
+        {
+            static void ListAllItems()
+            {
+                Console.WriteLine("All rental items:");
+                foreach (IRental item in rentalItems)
+                {
+                    Console.WriteLine(item.ToString());
+                }
+            }
+
+            static void ListAvailableItems()
+            {
+                Console.WriteLine("Available rental items:");
+                foreach (IRental item in rentalItems)
+                {
+                    if (item.IsAvailable)
+                    {
+                        Console.WriteLine(item.ToString());
+                    }
+                }
+            }
+
+            static void RentItem()
+            {
+                Console.Write("Enter the id of the item to rent: ");
+                int itemId = int.Parse(Console.ReadLine());
+                
+                IRental rentalItem = rentalItems.Find(item => item.Id == itemId);
+
+                if (rentalItem == null)
+                {
+                    Console.WriteLine("Item not found. Please try again.");
+                    return;
+                }
+
+                if (!rentalItem.IsAvailable)
+                {
+                    Console.WriteLine("Item is not available for rent. Please select another item.");
+                    return;
+                }
+
+                rentalItem.IsAvailable = false;
+                Console.WriteLine($"Id {rentalItem.Id} Item '{rentalItem.Name}' has been rented.");
+            }
+           
+                    // Add 10 rental items to the list
+            rentalItems.Add(new Vehicle(1,"Car", 100.0, "Sedan", 2021));
+            rentalItems.Add(new Vehicle(2,"Truck", 150.0, "Pickup", 2020));
+            rentalItems.Add(new Vehicle(3,"SUV", 120.0, "Compact", 2022));
+            rentalItems.Add(new Tool(4,"Hammer", 5.0, "Hand Tools"));
+            rentalItems.Add(new Tool(5,"Saw", 10.0, "Hand Tools"));
+            rentalItems.Add(new Tool(6,"Drill", 20.0, "Power Tools"));
+            rentalItems.Add(new RentalItem(7,"Bike", 25.0));
+            rentalItems.Add(new RentalItem(8,"Kayak", 35.0));
+            rentalItems.Add(new RentalItem(9,"Tent", 40.0));
+            rentalItems.Add(new RentalItem(10,"Lawn Mower", 30.0));
+
+            int choice = 0;
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("*** Rental Agency ***");
+                Console.WriteLine("1. List all rental items");
+                Console.WriteLine("2. List all available items");
+                Console.WriteLine("3. Rent an item");
+                Console.WriteLine("4. Exit");
+                Console.Write("Please select an option >> ");
+                choice = int.Parse(Console.ReadLine());
+
+                switch (choice)
+                {
+                    case 1:
+                        ListAllItems();
+                        break;
+                    case 2:
+                        ListAvailableItems();
+                        break;
+                    case 3:
+                        RentItem();
+                        break;
+                    case 4:
+                        Console.WriteLine("Exiting...");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option. Please try again.");
+                        break;
+                }
+
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+            } while (choice != 4);
+
+        }
+    }
+}

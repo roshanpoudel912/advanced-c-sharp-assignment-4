@@ -1,0 +1,15 @@
+D:\MacEwan\Winter Term\Advanced C#\Assignment 4\Assignment 4\bin\Debug\net6.0\Assignment 4.exe
+D:\MacEwan\Winter Term\Advanced C#\Assignment 4\Assignment 4\bin\Debug\net6.0\Assignment 4.deps.json
+D:\MacEwan\Winter Term\Advanced C#\Assignment 4\Assignment 4\bin\Debug\net6.0\Assignment 4.runtimeconfig.json
+D:\MacEwan\Winter Term\Advanced C#\Assignment 4\Assignment 4\bin\Debug\net6.0\Assignment 4.dll
+D:\MacEwan\Winter Term\Advanced C#\Assignment 4\Assignment 4\bin\Debug\net6.0\Assignment 4.pdb
+D:\MacEwan\Winter Term\Advanced C#\Assignment 4\Assignment 4\obj\Debug\net6.0\Assignment 4.csproj.AssemblyReference.cache
+D:\MacEwan\Winter Term\Advanced C#\Assignment 4\Assignment 4\obj\Debug\net6.0\Assignment 4.GeneratedMSBuildEditorConfig.editorconfig
+D:\MacEwan\Winter Term\Advanced C#\Assignment 4\Assignment 4\obj\Debug\net6.0\Assignment 4.AssemblyInfoInputs.cache
+D:\MacEwan\Winter Term\Advanced C#\Assignment 4\Assignment 4\obj\Debug\net6.0\Assignment 4.AssemblyInfo.cs
+D:\MacEwan\Winter Term\Advanced C#\Assignment 4\Assignment 4\obj\Debug\net6.0\Assignment 4.csproj.CoreCompileInputs.cache
+D:\MacEwan\Winter Term\Advanced C#\Assignment 4\Assignment 4\obj\Debug\net6.0\Assignment 4.dll
+D:\MacEwan\Winter Term\Advanced C#\Assignment 4\Assignment 4\obj\Debug\net6.0\refint\Assignment 4.dll
+D:\MacEwan\Winter Term\Advanced C#\Assignment 4\Assignment 4\obj\Debug\net6.0\Assignment 4.pdb
+D:\MacEwan\Winter Term\Advanced C#\Assignment 4\Assignment 4\obj\Debug\net6.0\Assignment 4.genruntimeconfig.cache
+D:\MacEwan\Winter Term\Advanced C#\Assignment 4\Assignment 4\obj\Debug\net6.0\ref\Assignment 4.dll
